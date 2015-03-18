@@ -1,7 +1,77 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/apprentice/dbc_overflow/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/apprentice/dbc_overflow/app/controllers/questions_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        4,
+        null,
+        4,
+        3,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        4,
+        4,
+        null,
+        null
+      ],
+      "/Users/apprentice/dbc_overflow/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/Users/apprentice/dbc_overflow/app/models/question.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null
+      ]
     },
-    "timestamp": 1426712566
+    "timestamp": 1426714848
   }
 }

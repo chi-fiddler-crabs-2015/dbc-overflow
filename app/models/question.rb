@@ -6,6 +6,9 @@ class Question < ActiveRecord::Base
   has_many :tags, through: :question_tags
   has_many :votes, as: :tally
 
+  validates :title, presence: true
+  validates :content, presence: true
+
   def vote_count
   end
 

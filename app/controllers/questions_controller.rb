@@ -9,9 +9,9 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.create(question_params)
+    @question = Question.new(question_params)
 
-    if @question.valid?
+    if @question.save
       redirect_to questions_path(@question.id)
     else
       render :new, notice: "You question was invalid"
@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find_by(params[:id])
+    @question = Question.find_by(id: params[:id])
   end
 
   def destroy
@@ -34,6 +34,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
+    puts params
     params.require(:question).permit(:title, :content)
   end
 end
