@@ -17,13 +17,20 @@ class CommentsController < ApplicationController
   end
 
   def create
+    answer = Answer.find_by(id: params[:answer_id])
     question = Question.find_by(id: params[:id])
-    @answer = question.answers.new
 
-    if @answer.valid?
+    # checks if comment belongs to a question or answer
+    if answer
+      @comment = answer.comments.create(comment_params)
+    else
+      @comment = question.comments.create(comment_params)
+    end
+
+    if @comment.valid?
       redirect_to questions_path(question.id)
     else
-      render questions_path(question.id), notice: "You Answer was invalid"
+      render questions_path(question.id), notice: "Your comment can not be blank"
     end
   end
 
@@ -41,7 +48,7 @@ class CommentsController < ApplicationController
 
   private
 
-  def answer_params
-    params.require(:Answer).permit(:content)
+  def comment_params
+    params.require(:comment).permit(:content)
   end
 end
