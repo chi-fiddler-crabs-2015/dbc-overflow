@@ -54,5 +54,10 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+  resources :users
+
   root "welcome#index"
 end

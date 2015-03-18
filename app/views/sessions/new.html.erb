@@ -1,0 +1,23 @@
+<div class="login-page">
+
+  <div class="login-section">
+    <h1>Login<h1>
+
+      <% render "shared/errors" %>
+
+      <%= form_tag '/login' do %>
+
+        Username: <%= text_field_tag :username %>
+        Password: <%= password_field_tag :password %>
+        <%= submit_tag "Login" %>
+
+      <% end %>
+  </div>
+
+  <div class="sign-up-section">
+    <h3>Get an Account</h3>
+
+    <%=link_to "Sign Up for An Account", new_user_path, :class => "button" %>
+  </div>
+
+</div>
