@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
-        redirect_to @user
+        redirect_to root_path
     else
       @error = "Your username and password didn't match, please try again or create a new account!"
       render 'new'
@@ -15,8 +15,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.clear
-    redirect_to '/'
+    session[user.id].clear
+    redirect_to root_path
   end
 
 end
