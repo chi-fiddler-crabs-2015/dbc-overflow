@@ -59,6 +59,10 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
   resources :users
-  resource :questions
-
+  resource :questions do
+    resource :answers
+    resource :comments
+  end
+  resource :tags
+  resource :votes
 end
