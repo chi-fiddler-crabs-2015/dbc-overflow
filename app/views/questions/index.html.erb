@@ -1,0 +1,14 @@
+<div id='container'>
+
+  <% @questions.each do |question| %>
+    <div class="question" id='<%= "#{question.id}" %>'>
+      <%= question.title %>
+      <br>
+    </div>
+  <% end %>
+
+  <br>
+
+  <%= link_to "New Question", new_questions_path, method: "get" %>
+</div>
+
