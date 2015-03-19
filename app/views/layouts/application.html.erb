@@ -17,6 +17,7 @@
         <%= link_to "Logout", logout_path%>
       <%else%>
       <div id="login"%>
+        <%= link_to "BrowseTopics", tags_path %>
         <%=link_to "Sign Up", new_user_path%>
         <%=link_to "Login", login_path %>
       </div>
