@@ -5,9 +5,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = parent.comments.create(comment_params)
+    @comment = parent.comments.new(comment_params)
 
-    if @comment.valid?
+    if @comment.save
       redirect_to questions_path(question.id)
     else
       render questions_path(question.id), notice: "Your comment can not be blank"
