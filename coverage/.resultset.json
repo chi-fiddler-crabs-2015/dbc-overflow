@@ -15,6 +15,8 @@
         null,
         1,
         1,
+        1,
+        1,
         null,
         null,
         1,
@@ -86,8 +88,22 @@
         1,
         null,
         null
+      ],
+      "/Users/tylerkowalewski/DevBootcamp/phase-3/short-project/dbc-overflow/app/models/answer.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null
       ]
     },
-    "timestamp": 1426730490
+    "timestamp": 1426764554
   }
 }

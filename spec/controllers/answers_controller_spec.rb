@@ -3,11 +3,11 @@ require 'rails_helper'
 
 describe AnswersController do
   let(:question) { create(:question) }
+  let(:answer) { create(:answer, question: question) }
 
   context "GET #index" do
     it 'assigns @answers to all answers' do
       get :index, question_id: question.id
-      answer = create(:answer)
       expect(assigns(:anwers)).to eq(Answer.all)
     end
   end
