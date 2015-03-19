@@ -4,21 +4,6 @@ require 'rails_helper'
 describe AnswersController do
   let(:question) { create(:question) }
 
-  context "GET #index" do
-    it 'assigns @answers to all answers' do
-      answer = create(:answer, question: question)
-      get :index, question_id: question.id
-      expect(assigns(:answers)).to eq(question.answers)
-    end
-  end
-
-  context "GET #new" do
-    it 'assigns answer to @answer' do
-      get :new, question_id: question.id
-      expect(assigns(:answer)).to be_a_new Answer
-    end
-  end
-
   # context "POST #create" do
 
   #   describe "when valid params are passed" do
