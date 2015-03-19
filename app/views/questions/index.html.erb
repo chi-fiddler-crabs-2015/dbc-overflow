@@ -2,9 +2,9 @@
 
   <% @questions.each do |question| %>
     <div class="question" id='<%= "#{question.id}" %>'>
-      <%= button_to '+', question_votes_path(@question.id), params: {vote_value: 1}  %>
+      <%= button_to '+', question_votes_path(question.id), params: {vote_value: 1}  %>
       <%= question.vote_count %>
-      <%= button_to '-', question_votes_path(@question.id), params: {vote_value: -1}  %>
+      <%= button_to '-', question_votes_path(question.id), params: {vote_value: -1}  %>
       <%=link_to "#{question.title}", question_path(question.id) %>
       <br>
     </div>
