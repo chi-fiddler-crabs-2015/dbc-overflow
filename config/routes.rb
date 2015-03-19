@@ -61,8 +61,8 @@ Rails.application.routes.draw do
   resources :users
   resources :questions do
     resources :answers
-    resources :comments
   end
+  resources :comments
   resources :tags
   resources :votes
 end
