@@ -1,16 +1,19 @@
 class VotesController < ApplicationController
 
-  def new
+  def create
+    if params[:vote_type] == "upvote"
+      parent.votes.create(value: 1)
+    else
+      parent.votes.create(value: -1)
+    end
   end
 
-  def create
-    #Need logic for new vote
+  private
 
-    if @vote.save
-      redirect_to questions_path(vote.id)
-    else
-      render questions_path(vote.id), notice: "You vote was invalid"
-    end
+  def parent
+    answer = Answer.find_by(id: params[:answer_id])
+    return answer if answer
+    Question.find_by(id: params[:question_id])
   end
 
 end

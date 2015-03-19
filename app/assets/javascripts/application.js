@@ -14,3 +14,6 @@
 //= require jquery_ujs
 
 //= require_tree .
+
+
+//Have upvote and downvotes send data for upvote and downvote
