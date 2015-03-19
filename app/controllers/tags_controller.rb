@@ -1,23 +1,25 @@
 class TagsController < ApplicationController
-    def index
-    @questions = Question.all
+
+  def index
+    @tags = Tag.all
   end
 
   def new
-    @question = Question.new
+    @tag = Tag.new
   end
 
   def create
-    @question = Question.new(question_params)
+    @tag = Tag.new(tag_params)
 
-    if @question.save
-      redirect_to questions_path(@question.id)
+    if @tag.save
+      redirect_to questions_path(@tag.id)
     else
-      render :new, notice: "You question was invalid"
+      render :new, notice: "You tag was invalid"
     end
   end
 
   def show
+    @tags = question.tags
   end
 
   def destroy
@@ -30,4 +32,12 @@ class TagsController < ApplicationController
   end
 
   private
+
+  def question
+    Question.find_by(id: params[:id])
+  end
+
+  def tag_params
+    params.require(:tag).permit(:title)
+  end
 end
