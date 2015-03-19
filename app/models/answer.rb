@@ -5,7 +5,8 @@ class Answer < ActiveRecord::Base
   has_many :votes, as: :tally
 
   validates :content, presence: true, uniqueness: true
-
+  validates :user, presence: true
+  validates :question, presence: true
   validate :content_must_not_be_nil
 
   def vote_count

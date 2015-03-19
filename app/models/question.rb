@@ -6,8 +6,8 @@ class Question < ActiveRecord::Base
   has_many :tags, through: :question_tags
   has_many :votes, as: :tally
 
-  validates :title, presence: true, uniqueness: true
-  validates :content, presence: true, uniqueness: true
+  validates :title, presence: true
+  validates :content, presence: true
 
   validate :title_must_not_be_nil
   validate :content_must_not_be_nil

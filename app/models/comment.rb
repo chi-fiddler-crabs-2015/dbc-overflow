@@ -3,7 +3,8 @@ class Comment < ActiveRecord::Base
   belongs_to :response, polymorphic: true
 
   validates :content, presence: true, uniqueness: true
-
+  validates :user, presence: true
+  validates :response, presence: true
   validate :content_must_not_be_nil
 
   def content_must_not_be_nil
