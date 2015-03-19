@@ -4,7 +4,7 @@ class VotesController < ApplicationController
   end
 
   def create
-
+    #Need logic for new vote
 
     if @vote.save
       redirect_to questions_path(vote.id)
