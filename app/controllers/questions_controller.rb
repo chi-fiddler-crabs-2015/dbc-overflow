@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
 
   def new
     if logged_in?
-    @question = Question.new
+      @question = Question.new
     else
       redirect_to root_path
     end
@@ -25,6 +25,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find_by(id: params[:id])
+    puts @question
   end
 
   def destroy

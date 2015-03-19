@@ -5,12 +5,13 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = parent.comments.create(comment_params)
+    @comment = parent.comments.new(comment_params)
 
-    if @comment.valid?
-      redirect_to questions_path(question.id)
+    if @comment.save
+      redirect_to question_path(params[:question_id])
     else
-      render questions_path(question.id), notice: "Your comment can not be blank"
+      @errors = @comment.errors.full_messages.join(', ')
+      render question_path(params[:question_id])
     end
   end
 
@@ -19,7 +20,7 @@ class CommentsController < ApplicationController
   def parent
     answer = Answer.find_by(id: params[:answer_id])
     return answer if answer
-    Question.find_by(id: params[:id])
+    Question.find_by(id: params[:question_id])
   end
 
   def comment_params
