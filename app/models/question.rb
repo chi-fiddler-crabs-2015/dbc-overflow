@@ -1,4 +1,5 @@
 class Question < ActiveRecord::Base
+  attr_accessor :new_tags
   belongs_to :user
   has_many :comments, as: :response, dependent: :destroy
   has_many :answers, dependent: :destroy
@@ -26,6 +27,10 @@ class Question < ActiveRecord::Base
     if self.title.length == 0
       errors.add(:title, "You entered a blank title")
     end
+  end
+
+  def new_tags=(tags_from_form)
+    self.new_tags = tags_from_form.gsub(",", "").split(' ')
   end
 
 end
