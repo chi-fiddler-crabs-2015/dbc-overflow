@@ -11,7 +11,7 @@ class Answer < ActiveRecord::Base
 
 
   def vote_count
-    self.votes.values.inject(:+)
+    self.votes.inject(0) {|x, y| x + y.value}
   end
 
   def content_must_not_be_nil
