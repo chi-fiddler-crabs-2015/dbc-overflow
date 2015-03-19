@@ -13,6 +13,7 @@ class Question < ActiveRecord::Base
   validate :content_must_not_be_nil
 
   def vote_count
+    self.votes.all.inject(:+)
   end
 
   def content_must_not_be_nil
