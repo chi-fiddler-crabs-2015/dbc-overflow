@@ -1,0 +1,21 @@
+<div class="add-new-comment">
+  <h3>Add a New Comment</h3>
+
+  <div class="errors-partial">
+    <% render "/shared/errors" %>
+  </div>
+
+  <div class="new-comment-form">
+     <%= form_for :comment, url: question_answer_comments_path(@question.id, @old_answer.id), method: :create do |f| %>
+
+      <p>
+        <%= f.label :content %><br>
+        <%= f.text_area :content %>
+      </p>
+
+      <p>
+        <%= f.submit "Leave Your Comment" %>
+      </p>
+    <% end %>
+  </div>
+</div>

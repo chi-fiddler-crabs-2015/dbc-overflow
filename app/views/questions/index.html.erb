@@ -1,0 +1,12 @@
+<div id='container'>
+
+  <% @questions.each do |question| %>
+    <div class="question" id='<%= "#{question.id}" %>'>
+      <%= question.title %>
+      <br>
+    </div>
+  <% end %>
+
+
+</div>
+
