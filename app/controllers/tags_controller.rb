@@ -19,7 +19,9 @@ class TagsController < ApplicationController
   end
 
   def show
-    @tags = question.tags
+    @tag = Tag.find_by(id: params[:id])
+    QuestionTag.find_by(tag: @tag)
+
   end
 
   def destroy
