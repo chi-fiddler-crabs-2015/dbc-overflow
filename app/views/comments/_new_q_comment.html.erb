@@ -1,12 +1,12 @@
 <div class="add-new-comment">
-  <h1>Add a New Comment</h1>
+  <h3>Add a New Comment</h3>
 
   <div class="errors-partial">
     <% render "/shared/errors" %>
   </div>
 
   <div class="new-comment-form">
-    <%= form_for :answer, url: question_path do |f| %>
+     <%= form_for :comment, url: question_comments_path(@question.id), method: :create do |f| %>
 
       <p>
         <%= f.label :content %><br>
@@ -14,8 +14,9 @@
       </p>
 
       <p>
-        <%= f.submit "Submit Your Comment" %>
+        <%= f.submit "Leave Your Comment" %>
       </p>
     <% end %>
   </div>
 </div>
+

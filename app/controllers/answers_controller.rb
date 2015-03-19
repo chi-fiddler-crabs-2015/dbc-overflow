@@ -9,10 +9,10 @@ class AnswersController < ApplicationController
     @answer = question.answers.new(answer_params)
 
     if @answer.save
-      redirect_to questions_path
+      redirect_to question_path(question.id)
     else
       @errors = @answer.errors.full_messages.join(', ')
-      render question_path(:question_id)
+      render question_path(question.id)
     end
   end
 

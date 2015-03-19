@@ -8,10 +8,10 @@ class CommentsController < ApplicationController
     @comment = parent.comments.new(comment_params)
 
     if @comment.save
-      redirect_to questions_path(:question_id)
+      redirect_to question_path(params[:question_id])
     else
       @errors = @comment.errors.full_messages.join(', ')
-      render questions_path(:question_id)
+      render question_path(params[:question_id])
     end
   end
 
@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
   def parent
     answer = Answer.find_by(id: params[:answer_id])
     return answer if answer
-    Question.find_by(id: params[:id])
+    Question.find_by(id: params[:question_id])
   end
 
   def comment_params

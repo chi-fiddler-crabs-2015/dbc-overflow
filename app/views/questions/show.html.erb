@@ -5,13 +5,15 @@
     <% @old_comment = comment %>
     <%=render 'comments/show'%>
   <%end%>
+  <%=render 'comments/new_q_comment'%>
   <% @question.answers.each do |answer|%>
-    <% @old_answer = answer %>
+    <% @old_answer = answer%>
     <%=render 'answers/show'%>
     <% answer.comments.each do |comment|%>
       <% @old_comment = comment %>
       <%=render 'comments/show'%>
     <%end%>
+    <%=render 'comments/new_a_comment'%>
   <%end%>
   <%=render 'answers/new'%>
 

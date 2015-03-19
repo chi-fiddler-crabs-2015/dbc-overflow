@@ -6,7 +6,7 @@
   </div>
 
   <div class="new-comment-form">
-    <%= form_for :comment, url: question_answers_path(@question.id), method: :create do |f| %>
+     <%= form_for :comment, url: question_answer_comments_path(@question.id, @old_answer.id), method: :create do |f| %>
 
       <p>
         <%= f.label :content %><br>
@@ -14,9 +14,8 @@
       </p>
 
       <p>
-        <%= f.submit "Submit Your Answer" %>
+        <%= f.submit "Leave Your Comment" %>
       </p>
     <% end %>
   </div>
 </div>
-
