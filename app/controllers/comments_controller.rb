@@ -6,12 +6,14 @@ class CommentsController < ApplicationController
 
   def create
     @comment = parent.comments.new(comment_params)
+    @comment.update_attributes(user: current_user)
 
     if @comment.save
       redirect_to question_path(params[:question_id])
     else
+      puts "You went else"
       @errors = @comment.errors.full_messages.join(', ')
-      render question_path(params[:question_id])
+      redirect_to question_path(params[:question_id])
     end
   end
 
