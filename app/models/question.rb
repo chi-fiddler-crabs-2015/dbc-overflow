@@ -22,7 +22,7 @@ class Question < ActiveRecord::Base
   end
 
   def title_must_not_be_nil
-    if self.question.length == 0
+    if self.title.length == 0
       errors.add(:title, "You entered a blank title")
     end
   end
