@@ -1,14 +1,15 @@
 class AnswersController < ApplicationController
 
   def new
+    @answer = Answer.new
   end
 
   def create
-    question = Question.find_by(id: params[:id])
-    @answer = question.answers.new
+    question = Question.find_by(id: params[:question_id])
+    @answer = question.answers.new(answer_params)
 
     if @answer.save
-      redirect_to questions_path(question.id)
+      redirect_to questions_path
     else
       @errors = @answer.errors.full_messages.join(', ')
       render new_question_answer

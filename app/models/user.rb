@@ -7,8 +7,6 @@ class User < ActiveRecord::Base
   has_many :votes
   has_secure_password
 
-  email,username,pass
-
   validates :username, :email, :password_digest, presence: true
   validates :username, :email, uniqueness: true
   validates_length_of :username, :within => 6..20

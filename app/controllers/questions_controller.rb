@@ -25,6 +25,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find_by(id: params[:id])
+    puts @question
   end
 
   def destroy

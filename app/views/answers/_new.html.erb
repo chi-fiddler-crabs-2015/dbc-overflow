@@ -1,12 +1,12 @@
 <div class="add-new-answer">
-  <h1>Add a New Answer</h1>
+  <h3>Add a New Answer</h3>
 
   <div class="errors-partial">
     <% render "/shared/errors" %>
   </div>
 
   <div class="new-answer-form">
-    <%= form_for :answer, url: question_answer_path do |f| %>
+    <%= form_for :answer, url: question_answers_path(@question.id), method: :create do |f| %>
 
       <p>
         <%= f.label :content %><br>
