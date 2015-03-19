@@ -6,10 +6,25 @@ class Question < ActiveRecord::Base
   has_many :tags, through: :question_tags
   has_many :votes, as: :tally
 
-  validates :title, presence: true
-  validates :content, presence: true
+  validates :title, presence: true, uniqueness: true
+  validates :content, presence: true, uniqueness: true
+
+  validate :title_must_not_be_nil
+  validate :content_must_not_be_nil
 
   def vote_count
+  end
+
+  def content_must_not_be_nil
+    if self.content.length == 0
+      errors.add(:content, "You entered a blank description.")
+    end
+  end
+
+  def title_must_not_be_nil
+    if self.question.length == 0
+      errors.add(:title, "You entered a blank title")
+    end
   end
 
 end
