@@ -2,12 +2,14 @@
 
 	<%=render 'questions/question' %>
   <% @question.comments.each do |comment| %>
+    <% @old_comment = comment %>
     <%=render 'comments/show'%>
   <%end%>
   <% @question.answers.each do |answer|%>
     <% @old_answer = answer %>
     <%=render 'answers/show'%>
     <% answer.comments.each do |comment|%>
+      <% @old_comment = comment %>
       <%=render 'comments/show'%>
     <%end%>
   <%end%>

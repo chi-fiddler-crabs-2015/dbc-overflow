@@ -8,9 +8,10 @@ class CommentsController < ApplicationController
     @comment = parent.comments.new(comment_params)
 
     if @comment.save
-      redirect_to questions_path(question.id)
+      redirect_to questions_path(:question_id)
     else
-      render questions_path(question.id), notice: "Your comment can not be blank"
+      @errors = @comment.errors.full_messages.join(', ')
+      render questions_path(:question_id)
     end
   end
 

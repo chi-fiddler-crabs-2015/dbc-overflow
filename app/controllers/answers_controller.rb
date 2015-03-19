@@ -12,7 +12,7 @@ class AnswersController < ApplicationController
       redirect_to questions_path
     else
       @errors = @answer.errors.full_messages.join(', ')
-      render new_question_answer
+      render question_path(:question_id)
     end
   end
 
