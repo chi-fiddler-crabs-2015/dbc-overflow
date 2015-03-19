@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
   def new
     if logged_in?
     @question = Question.new
-    else 
+    else
       redirect_to root_path
     end
   end
@@ -16,9 +16,10 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.new(question_params)
 
     if @question.save
-      redirect_to questions_path(@question.id)
+      redirect_to questions_path
     else
-      render :new, notice: "You question was invalid"
+      @errors = @post.errors.full_message.join(', ')
+      render :new
     end
   end
 

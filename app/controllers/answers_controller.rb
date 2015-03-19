@@ -10,7 +10,8 @@ class AnswersController < ApplicationController
     if @answer.save
       redirect_to questions_path(question.id)
     else
-      render questions_path(question.id), notice: "You Answer was invalid"
+      @errors = @answer.errors.full_messages.join(', ')
+      render new_question_answer
     end
   end
 
