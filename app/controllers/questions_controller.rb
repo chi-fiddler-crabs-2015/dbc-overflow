@@ -16,6 +16,15 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.new(question_params)
 
     if @question.save
+      @tags = tag_params.to_a.flatten
+      @tags[1].gsub( ',', '').split(' ').each do |tag|
+        @tag = Tag.find_by(title: tag)
+        if @tag
+          @tag.question_tags.create(question: @question)
+        else
+          @new_tag = Tag.create(title: tag).question_tags.create(question: @question)
+        end
+      end
       redirect_to questions_path
     else
       @errors = @question.errors.full_messages.join(', ')
@@ -40,5 +49,9 @@ class QuestionsController < ApplicationController
 
   def question_params
     params.require(:question).permit(:title, :content)
+  end
+
+  def tag_params
+    params.require(:question).permit(:new_tags)
   end
 end
