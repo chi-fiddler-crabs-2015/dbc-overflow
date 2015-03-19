@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-   def index
+  def index
     question = Question.find_by(id: params[:id])
     @question_comments = question.comments
     @answer_comments = {}
@@ -17,15 +17,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    answer = Answer.find_by(id: params[:answer_id])
-    question = Question.find_by(id: params[:id])
-
-    # checks if comment belongs to a question or answer
-    if answer
-      @comment = answer.comments.create(comment_params)
-    else
-      @comment = question.comments.create(comment_params)
-    end
+    @comment = parent.comments.create(comment_params)
 
     if @comment.valid?
       redirect_to questions_path(question.id)
@@ -35,6 +27,12 @@ class CommentsController < ApplicationController
   end
 
   def show
+    question = Question.find_by(id: params[:id])
+    @question_comments = question.comments
+    @answer_comments = {}
+    question.answers.each do |answer|
+      @answer_comments[answer.id] = answer.comments
+    end
   end
 
   def destroy
@@ -47,6 +45,12 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def parent
+    answer = Answer.find_by(id: params[:answer_id])
+    return answer if answer
+    Question.find_by(id: params[:id])
+  end
 
   def comment_params
     params.require(:comment).permit(:content)
