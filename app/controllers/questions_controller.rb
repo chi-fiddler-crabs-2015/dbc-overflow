@@ -5,11 +5,11 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    # if logged_in?
+    if logged_in?
       @question = Question.new
-    # else
-    #   redirect_to root_path
-    # end
+    else
+      redirect_to root_path
+    end
   end
 
   def create
@@ -25,6 +25,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find_by(id: params[:id])
+    puts @question
   end
 
   def destroy

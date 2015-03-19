@@ -1,14 +1,21 @@
 <div class="question page">
 
-	<%render 'questions/question' %>
+	<%=render 'questions/question' %>
   <% @question.comments.each do |comment| %>
-    <%render 'comment/show'%>
+    <% @old_comment = comment %>
+    <%=render 'comments/show'%>
   <%end%>
+  <%=render 'comments/new_q_comment'%>
   <% @question.answers.each do |answer|%>
-    <%render 'answer/show'%>
+    <% @old_answer = answer%>
+    <%=render 'answers/show'%>
     <% answer.comments.each do |comment|%>
-      <%render 'comment/show'%>
+      <% @old_comment = comment %>
+      <%=render 'comments/show'%>
     <%end%>
+    <%=render 'comments/new_a_comment'%>
   <%end%>
+  <%=render 'answers/new'%>
+
 
 </div>
