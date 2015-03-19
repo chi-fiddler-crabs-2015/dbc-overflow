@@ -18,14 +18,13 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to questions_path
     else
-      @errors = @post.errors.full_message.join(', ')
+      @errors = @question.errors.full_messages.join(', ')
       render :new
     end
   end
 
   def show
     @question = Question.find_by(id: params[:id])
-    puts @question
   end
 
   def destroy
@@ -40,7 +39,6 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    puts params
     params.require(:question).permit(:title, :content)
   end
 end
