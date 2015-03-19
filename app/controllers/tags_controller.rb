@@ -19,8 +19,14 @@ class TagsController < ApplicationController
   end
 
   def show
-    @tags = question.tags
+    @tag = Tag.find_by(id: params[:id])
+    @questions = []
+    QuestionTag.where(tag: @tag).each do |qt|
+      @questions << qt.question
+    end
+    @questions
   end
+
 
   def destroy
   end

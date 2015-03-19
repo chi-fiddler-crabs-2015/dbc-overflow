@@ -12,7 +12,8 @@
       <%=link_to "DbcOverflow", root_path, :id => "logo" %>
       <%if current_user %>
       <div id="user-menu">
-        <%= link_to "New Question", new_question_path %>
+        <%= link_to "BrowseTopics", tags_path %>
+        <%= link_to "NewQuestion", new_question_path %>
         <%= link_to "Logout", logout_path%>
       <%else%>
       <div id="login"%>
