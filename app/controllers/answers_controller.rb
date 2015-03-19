@@ -7,12 +7,12 @@ class AnswersController < ApplicationController
   def create
     question = Question.find_by(id: params[:question_id])
     @answer = question.answers.new(answer_params)
-
+    @answer.update_attributes(user: current_user)
     if @answer.save
-      redirect_to question_path(question.id)
+      redirect_to question_path(params[:question_id])
     else
       @errors = @answer.errors.full_messages.join(', ')
-      render question_path(question.id)
+      redirect_to question_path(params[:question_id])
     end
   end
 
