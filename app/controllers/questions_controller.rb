@@ -5,11 +5,15 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    if logged_in?
     @question = Question.new
+    else 
+      redirect_to root_path
+    end
   end
 
   def create
-    @question = Question.new(question_params)
+    @question = current_user.questions.new(question_params)
 
     if @question.save
       redirect_to questions_path(@question.id)
