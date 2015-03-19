@@ -1,8 +1,8 @@
 class Tag < ActiveRecord::Base
-  has_many :question_tags
+  has_many :question_tags, dependent: :destroy
   has_many :questions, through: :question_tags
 
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true
   validate :title_must_not_be_nil
 
   def title_must_not_be_nil

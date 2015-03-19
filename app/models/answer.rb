@@ -1,11 +1,12 @@
 class Answer < ActiveRecord::Base
   belongs_to :user
   belongs_to :question
-  has_many :comments, as: :response
-  has_many :votes, as: :tally
+  has_many :comments, as: :response, dependent: :destroy
+  has_many :votes, as: :tally, dependent: :destroy
 
-  validates :content, presence: true, uniqueness: true
-
+  validates :content, presence: true
+  validates :user, presence: true
+  validates :question, presence: true
   validate :content_must_not_be_nil
 
 
