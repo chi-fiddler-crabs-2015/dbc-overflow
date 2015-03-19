@@ -6,6 +6,7 @@ class QuestionsController < ApplicationController
 
   def new
     if logged_in?
+      @question = Question.new
     else
       redirect_to root_path
     end
