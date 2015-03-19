@@ -5,7 +5,10 @@ class CreateAnswers < ActiveRecord::Migration
       t.belongs_to    :question
       t.text          :content
 
+
       t.timestamps
     end
+    add_index :answers, :user_id
+    add_index :answers, :question_id
   end
 end
