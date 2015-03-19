@@ -14,4 +14,5 @@ Testing
 -RSpec
 -Capybara
 
-{INSERT NAME} was a group project completed by Tyler Kowalewski, Kay Lindenberg, and David Vaynshteyn
+### GROUP STUFF
+was a group project completed by Tyler Kowalewski, Kay Lindenberg, and David Vaynshteyn
