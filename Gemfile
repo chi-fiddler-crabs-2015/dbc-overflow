@@ -37,3 +37,4 @@ gem 'rails_12factor'
 # gem 'debugger', group: [:development, :test]
 gem 'rspec-rails', '~> 3.0'
 gem 'simplecov', :require => false, :group => :test
+gem 'shoulda-matchers', :require => false, :group => :test

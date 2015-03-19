@@ -7,12 +7,10 @@ class User < ActiveRecord::Base
   has_many :votes
   has_secure_password
 
-  email,username,pass
-
   validates :username, :email, :password_digest, presence: true
-  validates :username, :email, uniqueness: true
+  validates_uniqueness_of :username, :email
   validates_length_of :username, :within => 6..20
-  validates :password_digest, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }
   validates :email, format: { with: /.+@.+[.].+/ }
   validates :username, format: { with: /\A[a-zA-Z0-9]+\z/ }
 
