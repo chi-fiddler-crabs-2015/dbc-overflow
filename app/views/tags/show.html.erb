@@ -2,7 +2,12 @@
 
 <h1><%=@tag.title%></h1>
 
-<%=@tag.%>
+<% @questions.each do |question| %>
+    <div class="question" id='<%= "#{question.id}" %>'>
+      <%=link_to "#{question.title}", question_path(question.id) %>
+      <br>
+    </div>
+  <% end %>
 
 
 </div>
