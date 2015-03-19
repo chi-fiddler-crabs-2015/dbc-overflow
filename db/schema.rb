@@ -24,6 +24,9 @@ ActiveRecord::Schema.define(version: 20150318190559) do
     t.datetime "updated_at"
   end
 
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
+
   create_table "comments", force: true do |t|
     t.integer  "response_id"
     t.string   "response_type"
@@ -33,12 +36,17 @@ ActiveRecord::Schema.define(version: 20150318190559) do
     t.datetime "updated_at"
   end
 
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
   create_table "question_tags", force: true do |t|
     t.integer  "question_id"
     t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "question_tags", ["question_id"], name: "index_question_tags_on_question_id", using: :btree
+  add_index "question_tags", ["tag_id"], name: "index_question_tags_on_tag_id", using: :btree
 
   create_table "questions", force: true do |t|
     t.integer  "user_id"
@@ -47,6 +55,8 @@ ActiveRecord::Schema.define(version: 20150318190559) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
 
   create_table "tags", force: true do |t|
     t.string   "title"
@@ -70,5 +80,7 @@ ActiveRecord::Schema.define(version: 20150318190559) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
 
 end

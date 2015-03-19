@@ -6,6 +6,7 @@ class Answer < ActiveRecord::Base
 
   validates :content, presence: true
 
+
   def vote_count
   end
 
