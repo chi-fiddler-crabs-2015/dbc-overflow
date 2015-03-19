@@ -2,6 +2,11 @@ require 'rails_helper'
 
 
 describe QuestionsController do
+  let(:user) {create(:user)}
+
+  before do
+    allow_any_instance_of(ApplicationController).to receive(:logged_in?).and_return(user)
+  end
 
   context "GET #index" do
     it 'assigns @questions to all questions' do
@@ -28,6 +33,7 @@ describe QuestionsController do
 
   context "POST #create" do
 
+
     describe "when valid params are passed" do
       # let(:new_question) { Question.create(title: "hey its a test", content: "hey its a content") }
 
@@ -38,13 +44,13 @@ describe QuestionsController do
       end
 
       it 'assigns a newly created question as a question' do
-        post :create, { question: {title: "hey its a test", content: "hey its a content"} }
+        post :create, { question: {title: "hey its a test1", content: "hey its a content1"} }
         expect(assigns(:question)).to be_a Question
       end
 
       it 'redirects to the newly created question' do
         expect(
-          post :create, { question: {title: "hey its a test", content: "hey its a content"} }
+          post :create, { question: {title: "hey its a test2", content: "hey its a content2"} }
         ).to redirect_to questions_path(assigns(:question))
       end
     end
@@ -52,7 +58,7 @@ describe QuestionsController do
     describe "when invalid params are passed" do
       it 'does not create a new question' do
         expect {
-          post :create, { question: {content: "hey its a content"} }
+          post :create, { question: {content: "hey its a content4"} }
         }.to change{Question.count}.by(0)
       end
 
