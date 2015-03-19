@@ -6,5 +6,7 @@ class CreateQuestionTags < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :question_tags, :tag_id
+    add_index :question_tags, :question_id
   end
 end

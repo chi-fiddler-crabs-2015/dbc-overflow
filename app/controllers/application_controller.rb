@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-	return true if current_user != nil
+	 return true if current_user != nil
   end
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.

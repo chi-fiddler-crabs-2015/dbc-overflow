@@ -8,6 +8,7 @@ class Answer < ActiveRecord::Base
 
   validate :content_must_not_be_nil
 
+
   def vote_count
   end
 
