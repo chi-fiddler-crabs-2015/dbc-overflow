@@ -10,7 +10,7 @@
         null,
         null
       ],
-      "/Users/tylerkowalewski/DevBootcamp/phase-3/short-project/dbc-overflow/app/controllers/questions_controller.rb": [
+      "/Users/tylerkowalewski/DevBootcamp/phase-3/short-project/dbc-overflow/app/controllers/answers_controller.rb": [
         1,
         null,
         1,
@@ -18,21 +18,18 @@
         null,
         null,
         1,
-        1,
+        0,
         null,
         null,
         1,
-        4,
+        0,
+        0,
         null,
-        4,
-        3,
+        0,
+        0,
         null,
-        1,
+        0,
         null,
-        null,
-        null,
-        1,
-        1,
         null,
         null,
         1,
@@ -46,9 +43,11 @@
         null,
         1,
         null,
+        null,
         1,
-        4,
-        4,
+        null,
+        1,
+        0,
         null,
         null
       ],
@@ -75,8 +74,20 @@
         null,
         null,
         null
+      ],
+      "/Users/tylerkowalewski/DevBootcamp/phase-3/short-project/dbc-overflow/app/models/user.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
       ]
     },
-    "timestamp": 1426728377
+    "timestamp": 1426730490
   }
 }
