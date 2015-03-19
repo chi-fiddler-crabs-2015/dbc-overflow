@@ -1,14 +1,14 @@
 class Question < ActiveRecord::Base
   belongs_to :user
-  has_many :comments, as: :response
-  has_many :answers
-  has_many :question_tags
+  has_many :comments, as: :response, dependent: :destroy
+  has_many :answers, dependent: :destroy
+  has_many :question_tags, dependent: :destroy
   has_many :tags, through: :question_tags
-  has_many :votes, as: :tally
+  has_many :votes, as: :tally, dependent: :destroy
 
   validates :title, presence: true
   validates :content, presence: true
-
+  validates :user, presence: true
   validate :title_must_not_be_nil
   validate :content_must_not_be_nil
 
