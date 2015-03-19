@@ -12,20 +12,12 @@ describe AnswersController do
     end
   end
 
-  # context "GET #new" do
-  #   it 'assigns question to @question' do
-  #     get :new
-  #     expect(assigns(:question)).to be_a_new Question
-  #   end
-  # end
-
-  # context "GET #show" do
-  #   it 'assigns the question to @question' do
-  #     question = create(:question)
-  #     get :show, { id: question.to_param }
-  #     expect(assigns(:question)).to eq question
-  #   end
-  # end
+  context "GET #new" do
+    it 'assigns answer to @answer' do
+      get :new, question_id: question.id
+      expect(assigns(:answer)).to be_a_new Answer
+    end
+  end
 
   # context "POST #create" do
 

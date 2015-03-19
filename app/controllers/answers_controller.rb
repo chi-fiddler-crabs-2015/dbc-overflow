@@ -1,8 +1,6 @@
 class AnswersController < ApplicationController
 
   def index
-    puts "--------------------------------------------"
-    puts params
     @answers = Question.find_by(id: params[:question_id]).answers
   end
 
