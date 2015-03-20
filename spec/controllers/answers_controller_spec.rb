@@ -14,13 +14,13 @@ describe AnswersController do
     describe "when valid params are passed" do
       it 'creates a new answer' do
         expect {
-          post :create, question_id: question.id, answer: {content: "hey its a content", user: user}}
-          .to change{Answer.count}.by(1)
+        post :create, question_id: question.id, answer: {content: "hey its a content", user: user}}
+        .to change{Answer.count}.by(1)
       end
 
       it 'assigns a newly created answer as an answer' do
         post :create, question_id: question.id, answer: {content: "hey its a content", user: user}
-          expect(assigns(:answer)).to be_a Answer
+        expect(assigns(:answer)).to be_a Answer
       end
 
       it 'redirects to the newly created answers question page' do
@@ -30,17 +30,19 @@ describe AnswersController do
       end
     end
 
-  #   describe "when invalid params are passed" do
-  #     it 'does not create a new question' do
-  #       expect {
-  #         post :create, { question: {content: "hey its a content"} }
-  #       }.to change{Question.count}.by(0)
-  #     end
+    describe "when invalid params are passed" do
+      it 'does not create a new answer' do
+        expect {
+        post :create, question_id: question.id, answer: {content: "hey its a content"}}
+        .to change{Answer.count}.by(1)
+      end
 
-  #     it 'sends the user to new question page' do
-
-  #     end
-    # end
+      it 'redirects the user to question page' do
+        expect(
+          post :create, question_id: question.id, answer: {content: "hey its a content"}
+        ).to redirect_to question_path(question.id)
+      end
+    end
   end
 
 end
