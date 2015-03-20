@@ -11,12 +11,12 @@ class AnswersController < ApplicationController
     if @answer.save
       respond_to do |format|
         format.js do
-            render partial: 'add_ajax_answer' and return
-          end
+          render partial: 'add_ajax_answer' and return
         end
         format.any do
+          redirect_to question_path(params[:question_id])
         end
-      redirect_to question_path(params[:question_id])
+      end
     else
       @errors = @answer.errors.full_messages.join(', ')
       redirect_to question_path(params[:question_id])
