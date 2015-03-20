@@ -17,14 +17,17 @@ class QuestionsController < ApplicationController
 
     if @question.save
       @tags = tag_params.to_a.flatten
-      @tags[1].gsub( ',', '').split(' ').each do |tag|
-        @tag = Tag.find_by(title: tag)
-        if @tag
-          @tag.question_tags.create(question: @question)
-        else
-          @new_tag = Tag.create(title: tag).question_tags.create(question: @question)
+      unless @tags.empty?
+        @tags[1].gsub(/\W+/, ' ').split(' ').each do |tag|
+          @tag = Tag.find_by(title: tag)
+          if @tag
+            @tag.question_tags.create(question: @question)
+          else
+            @new_tag = Tag.create(title: tag).question_tags.create(question: @question)
+          end
         end
       end
+
       redirect_to questions_path
     else
       @errors = @question.errors.full_messages.join(', ')
