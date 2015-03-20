@@ -9,7 +9,6 @@
      <%= form_for :comment, url: question_answer_comments_path(@question.id, @old_answer.id), remote: true, authenticity_token: true, method: :create do |f| %>
 
       <p>
-        <%= f.label :content %><br>
         <%= f.text_area :content %>
       </p>
 

@@ -1,5 +1,5 @@
 <div class="add-new-answer">
-  <h3>Add a New Answer</h3>
+  <h3>Answer this Question</h3>
 
   <div class="errors-partial">
     <% render "/shared/errors" %>
@@ -9,7 +9,6 @@
     <%= form_for :answer, url: question_answers_path(@question.id), method: :create, remote: true, authenticity_token: true do |f| %>
 
       <p>
-        <%= f.label :content %><br>
         <%= f.text_area :content %>
       </p>
 

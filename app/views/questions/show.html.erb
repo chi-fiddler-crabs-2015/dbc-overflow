@@ -1,21 +1,40 @@
 <div class="question-page">
 
-	<%=render 'questions/question' %>
-  <% @question.comments.each do |comment| %>
+	<div class="render-question">
+    <%=render 'questions/question' %>
+  </div>
+  <div class="q-comment">
+    <% @question.comments.each do |comment| %>
     <% @old_comment = comment %>
-    <%=render 'comments/show' %>
-  <%end%>
-  <%=render 'comments/new_q_comment'%>
-  <% @question.answers.each do |answer|%>
-    <% @old_answer = answer%>
-    <%=render 'answers/show'%>
-    <% answer.comments.each do |comment|%>
-      <% @old_comment = comment %>
-      <%=render 'comments/show'%>
+    <div class="render-q-comment">
+      <%=render 'comments/show' %>
+    </div>
     <%end%>
-    <%=render 'comments/new_a_comment'%>
-  <%end%>
-  <%=render 'answers/new'%>
-
+  </div>
+  <div class="new-q-comment">
+    <%=render 'comments/new_q_comment'%>
+  </div>
+  <div class="all-answer">
+    <% @question.answers.each do |answer|%>
+    <% @old_answer = answer%>
+    <div class="render-answer">
+      <%=render 'answers/show'%>
+    </div>
+    <div class="a-comment">
+      <% answer.comments.each do |comment|%>
+      <% @old_comment = comment %>
+      <div class="render-a-comment">
+        <%=render 'comments/show'%>
+      </div>
+      <%end%>
+    </div>
+    <div class="new-a-comment">
+      <%=render 'comments/new_a_comment'%>
+    </div>
+    <%end%>
+  </div>
+  <div class="new-answer">
+    <%=render 'answers/new'%>
+  </div>
 
 </div>

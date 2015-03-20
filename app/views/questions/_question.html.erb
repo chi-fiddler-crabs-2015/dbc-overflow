@@ -1,3 +1,4 @@
+<h3>Question</h3>
 <div class="question-container">
   <div class="vote-container">
     <%= button_to '+', question_votes_path(@question.id), params: {vote_value: 1}, remote: true, authenticity_token: true  %>

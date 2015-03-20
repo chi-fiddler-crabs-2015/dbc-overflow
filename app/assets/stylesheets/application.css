@@ -77,6 +77,18 @@
   display: inline-block;
 }
 
+.question-container {
+    padding: 1em;
+}
+
+.answer-container div {
+  display: inline-block;}
+
+.answer-container {
+  padding: 1em;
+  margin-left: 3em;
+}
+
 table {
   font-size: 1em;
   font-family: sans-serif;
@@ -123,6 +135,10 @@ button {
   vertical-align: top;
 }
 
+.old-answer-container {
+  margin: .5em;
+  vertical-align: top;
+}
 .vote-container {
   text-align: center;}
 
@@ -149,5 +165,28 @@ button {
 .tag-container a {
   text-decoration: none;
   color: rgb(0, 119, 204);
+}
+
+.render-q-comment {
+  background: gray;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  }
+
+.render-a-comment {
+  background: gray;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  margin-left: 4em;
+}
+
+.render-answer {
+  text-align: left;
+  display: inline-block;
+
+}
+
+.new-a-comment {
+  margin-left: 4em;
 }
 
