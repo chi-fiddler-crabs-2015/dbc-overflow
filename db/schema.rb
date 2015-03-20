@@ -72,6 +72,9 @@ ActiveRecord::Schema.define(version: 20150318190559) do
     t.datetime "updated_at"
   end
 
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+
   create_table "votes", force: true do |t|
     t.integer  "tally_id"
     t.string   "tally_type"
