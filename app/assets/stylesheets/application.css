@@ -59,23 +59,12 @@
 }
 
 .question-page {
-  margin-top: 2em;
+  margin: 2em auto;
+  width: 90%;
 }
 
-.question-container {
+.question-container div {
   display: inline-block;
-}
-
-.vote-conainer {
-
-}
-
-.q-title {
-
-}
-
-.q-content {
-
 }
 
 table {
@@ -115,3 +104,18 @@ table a {
   vertical-align: bottom;
 }
 
+button {
+  width: 5%;
+}
+
+.q-title-content {
+  margin: .5em;
+  vertical-align: top;
+}
+
+.vote-container {
+  text-align: center;}
+
+.vote-container span {
+  padding: .25em;
+}
