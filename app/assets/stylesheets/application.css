@@ -31,6 +31,14 @@
   line-height: 1;
 }
 
+.topbar a:hover{
+  color: silver;
+  -webkit-stroke-width: 3px;
+      -webkit-stroke-color: #FFFFFF;
+      -webkit-fill-color: #FFFFFF;
+      text-shadow: 1px 0px 2px silver;
+}
+
 .home-nav {
   position: relative;
   text-align: left;
@@ -62,6 +70,8 @@
   margin: 2em auto;
   width: 90%;
 }
+
+
 
 .question-container div {
   display: inline-block;
@@ -119,3 +129,25 @@ button {
 .vote-container span {
   padding: .25em;
 }
+
+.show-comment {
+  backround: red;
+}
+
+.tag-container {
+  margin: 2em auto;
+  width: 90%;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.tag-container div {
+  display: inline-block;
+  font-size: 1em;
+}
+
+.tag-container a {
+  text-decoration: none;
+  color: rgb(0, 119, 204);
+}
+
