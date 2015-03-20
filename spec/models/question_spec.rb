@@ -1,5 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Question, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should have_many(:answers) }
+
+  it { should have_many(:comments) }
+
+  it { should have_many(:votes) }
+
+  it {should have_many(:tags) }
+
+  it { should belong_to(:user) }
+
 end

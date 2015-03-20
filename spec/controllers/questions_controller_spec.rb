@@ -17,9 +17,13 @@ describe QuestionsController do
 
   context "GET #new" do
     it 'assigns question to @question' do
-
       get :new
       expect(assigns(:question)).to be_a_new Question
+    end
+
+    it 'redirects user to root path if not logged in' do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(nil)
+      expect(get :new).to redirect_to root_path
     end
   end
 
