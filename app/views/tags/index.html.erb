@@ -1,9 +1,10 @@
-<div class='tag_container'>
+<div class='tag-container'>
 
+<h1>Browse by Tag</h1>
   <% @tags.each do |tag| %>
     <div class="tag" id='<%= "#{tag.id}" %>'>
       <%=link_to "#{tag.title}", tag_path(tag.id) %>
-      <br>
+      *
     </div>
   <% end %>
 

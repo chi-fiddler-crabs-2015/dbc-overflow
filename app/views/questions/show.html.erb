@@ -3,7 +3,7 @@
 	<%=render 'questions/question' %>
   <% @question.comments.each do |comment| %>
     <% @old_comment = comment %>
-    <%=render 'comments/show'%>
+    <%=render 'comments/show' %>
   <%end%>
   <%=render 'comments/new_q_comment'%>
   <% @question.answers.each do |answer|%>
