@@ -14,7 +14,7 @@ class Question < ActiveRecord::Base
   validate :content_must_not_be_nil
 
   def vote_count
-    self.votes.values.inject(:+)
+    self.votes.inject(0) {|x, y| x + y.value}
   end
 
   def content_must_not_be_nil

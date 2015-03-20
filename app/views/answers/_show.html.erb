@@ -1,2 +1,5 @@
 <h2>Answer</h2>
+<%= button_to '+', question_answer_votes_path(@question.id, @old_answer.id), params: {vote_value: 1}  %>
+<%= @old_answer.vote_count%>
+<%= button_to '-', question_answer_votes_path(@question.id, @old_answer.id), params: {vote_value: -1}  %>
 <%= @old_answer.content %><br>

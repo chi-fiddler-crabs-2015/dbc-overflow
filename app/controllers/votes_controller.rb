@@ -1,11 +1,8 @@
 class VotesController < ApplicationController
 
   def create
-    if params[:vote_type] == "upvote"
-      parent.votes.create(value: 1)
-    else
-      parent.votes.create(value: -1)
-    end
+    parent.votes.create(value: params[:vote_value], user: current_user)
+    redirect_to :back
   end
 
   private
