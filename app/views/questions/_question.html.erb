@@ -1,8 +1,8 @@
 <div class="question-container">
   <div class="vote-container">
-    <%= button_to '+', question_votes_path(@question.id), params: {vote_value: 1}  %>
-    <span><%= @question.vote_count %></span><br>
-    <%= button_to '-', question_votes_path(@question.id), params: {vote_value: -1}  %>
+    <%= button_to '+', question_votes_path(@question.id), params: {vote_value: 1}, remote: true, authenticity_token: true  %>
+    <span id='vote-counter'><%= @question.vote_count %><br></span>
+    <%= button_to '-', question_votes_path(@question.id), params: {vote_value: -1}, remote: true, authenticity_token: true  %>
   </div>
   <div class="q-title-content">
     <%=@question.title%><br>
