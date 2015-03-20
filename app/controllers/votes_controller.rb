@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
 
   def create
-    parent.votes.create(value: params[:vote_value], user: current_user)
+    parent.votes.find_or_create_by(value: params[:vote_value], user: current_user)
     @vote = parent.vote_count
     # respond_to do |format|
     #   format.js do
