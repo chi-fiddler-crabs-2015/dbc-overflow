@@ -10,4 +10,5 @@ RSpec.describe Question, type: :model do
   it {should have_many(:tags) }
 
   it { should belong_to(:user) }
+
 end
