@@ -12,7 +12,6 @@ class AnswersController < ApplicationController
       redirect_to question_path(params[:question_id])
     else
       @errors = @answer.errors.full_messages.join(', ')
-      puts @errors
       redirect_to question_path(params[:question_id])
     end
   end
