@@ -18,17 +18,17 @@ describe AnswersController do
           .to change{Answer.count}.by(1)
       end
 
-  #     it 'assigns a newly created question as a question' do
-  #       post :create, { question: {title: "hey its a test", content: "hey its a content"} }
-  #       expect(assigns(:question)).to be_a Question
-  #     end
+      it 'assigns a newly created answer as an answer' do
+        post :create, question_id: question.id, answer: {content: "hey its a content", user: user}
+          expect(assigns(:answer)).to be_a Answer
+      end
 
-  #     it 'redirects to the newly created question' do
-  #       expect(
-  #         post :create, { question: {title: "hey its a test", content: "hey its a content"} }
-  #       ).to redirect_to questions_path(assigns(:question))
-  #     end
-  #   end
+      it 'redirects to the newly created answers question page' do
+        expect(
+          post :create, question_id: question.id, answer: {content: "hey its a content", user: user}
+        ).to redirect_to question_path(question.id)
+      end
+    end
 
   #   describe "when invalid params are passed" do
   #     it 'does not create a new question' do
@@ -40,7 +40,7 @@ describe AnswersController do
   #     it 'sends the user to new question page' do
 
   #     end
-    end
+    # end
   end
 
 end
