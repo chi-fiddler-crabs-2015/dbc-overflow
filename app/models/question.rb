@@ -17,6 +17,10 @@ class Question < ActiveRecord::Base
     self.votes.inject(0) {|x, y| x + y.value}
   end
 
+  def answer_count
+    self.answers.count
+  end
+
   def content_must_not_be_nil
     if self.content.length == 0
       errors.add(:content, "You entered a blank description.")
@@ -31,6 +35,10 @@ class Question < ActiveRecord::Base
 
   def new_tags=(tags_from_form)
     self.new_tags = tags_from_form.gsub(",", "").split(' ')
+  end
+
+  def time_since_creation
+    ((Time.now - created_at) / 3600).round
   end
 
 end

@@ -77,3 +77,41 @@
 .q-content {
 
 }
+
+table {
+  font-size: 1em;
+  font-family: sans-serif;
+  color: gray;
+  text-align: center;
+  margin-top: 3em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+td {
+  border-bottom: 1px solid gray;
+  padding: .5em 0;
+}
+
+table .question-tag {
+  text-align: left;
+  vertical-align: top;
+}
+
+table a {
+  text-decoration: none;
+  color: rgb(0, 119, 204);
+}
+
+.tags {
+  background: rgb(222, 232, 242);
+  padding: 3px;
+}
+
+.user-time {
+  font-size: .75em;
+  text-align: right;
+  vertical-align: bottom;
+}
+
