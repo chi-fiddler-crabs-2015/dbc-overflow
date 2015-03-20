@@ -33,13 +33,13 @@ describe AnswersController do
     describe "when invalid params are passed" do
       it 'does not create a new answer' do
         expect {
-        post :create, question_id: question.id, answer: {content: "hey its a content"}}
-        .to change{Answer.count}.by(1)
+          post :create, question_id: question.id, answer: {content: ""}}
+        .to change{Answer.count}.by(0)
       end
 
       it 'redirects the user to question page' do
         expect(
-          post :create, question_id: question.id, answer: {content: "hey its a content"}
+          post :create, question_id: question.id, answer: {content: ""}
         ).to redirect_to question_path(question.id)
       end
     end
