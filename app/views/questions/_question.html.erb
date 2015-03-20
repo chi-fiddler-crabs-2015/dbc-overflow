@@ -1,4 +1,11 @@
-<%= button_to '+', question_votes_path(@question.id), params: {vote_value: 1}  %>
-<%= @question.vote_count %> <%=@question.title%><br>
-<%= button_to '-', question_votes_path(@question.id), params: {vote_value: -1}  %>
-<%=@question.content%>
+<div class="question-container">
+  <div class="vote-container">
+    <%= button_to '+', question_votes_path(@question.id), params: {vote_value: 1}  %>
+    <span><%= @question.vote_count %></span><br>
+    <%= button_to '-', question_votes_path(@question.id), params: {vote_value: -1}  %>
+  </div>
+  <div class="q-title-content">
+    <%=@question.title%><br>
+    <%=@question.content%>
+  </div>
+</div>
