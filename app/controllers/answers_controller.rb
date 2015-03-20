@@ -5,7 +5,6 @@ class AnswersController < ApplicationController
   end
 
   def create
-    puts params
     @question = Question.find_by(id: params[:question_id])
     @answer = @question.answers.new(answer_params)
     @answer.update_attributes(user: current_user)

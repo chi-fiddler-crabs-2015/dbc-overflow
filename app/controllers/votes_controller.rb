@@ -2,7 +2,14 @@ class VotesController < ApplicationController
 
   def create
     parent.votes.create(value: params[:vote_value], user: current_user)
-    redirect_to :back
+    @vote = parent.vote_count
+    respond_to do |format|
+      format.js do
+          render partial: 'add_ajax_vote' and return
+        end
+      format.any do
+      end
+    end
   end
 
   private
