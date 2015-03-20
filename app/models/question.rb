@@ -17,6 +17,10 @@ class Question < ActiveRecord::Base
     self.votes.inject(0) {|x, y| x + y.value}
   end
 
+  def answer_count
+    self.answers.count
+  end
+
   def content_must_not_be_nil
     if self.content.length == 0
       errors.add(:content, "You entered a blank description.")
