@@ -1,14 +1,25 @@
 <div id='questions'>
 
-  <% @questions.each do |question| %>
-    <div class="question" id='<%= "#{question.id}" %>'>
-      <%= button_to '+', question_votes_path(question.id), params: {vote_value: 1}  %>
-      <%= question.vote_count %>
-      <%= button_to '-', question_votes_path(question.id), params: {vote_value: -1}  %>
-      <%=link_to "#{question.title}", question_path(question.id) %>
-      <br>
-    </div>
-  <% end %>
+<table class="q-display-table">
+<!--   <tr>
+    <th class="name"></th>
+    <th class="destination">Destination</th>
+    <th class="duration">Duration</th>
+    <th class="completed">Completed</th>
+    <th class="complete">Mark Complete/Incomplete</th>
+    <th class="delete">Delete Trip</th>
+  </tr> -->
+    <% @questions.each do |question| %>
+  <tr>
+    <td class="votes"><%=question.vote_count %><br>votes</td>
+    <td class="answers"><%=question.answers %><br>answers</td>
+    <td class="duration"><%=link_to "#{question.title}", question_path(question.id) %><br>
+      <%question.tags.each do |tag|%>
+      <%=tag.title%>
+      <%end%></td>
+  </tr>
+    <% end %>
+</table>
 
 
 </div>
