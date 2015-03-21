@@ -1,0 +1,30 @@
+<div class="new-question-page">
+  <h1>Create a New Question</h1>
+
+  <div class="errors-partial">
+    <% render "/shared/errors" %>
+  </div>
+
+  <div class="new-question-form">
+    <%= form_for :question, url: questions_path do |f| %>
+      <p>
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+      </p>
+
+      <p>
+        <%= f.label :content %><br>
+        <%= f.text_area :content %>
+      </p>
+
+      <p>
+        <%= f.label :new_tags %><br>
+        <%= f.text_field :new_tags %>
+      </p>
+
+      <p>
+        <%= f.submit "Submit Your Question" %>
+      </p>
+    <% end %>
+  </div>
+</div>

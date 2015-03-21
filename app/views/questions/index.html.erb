@@ -1,0 +1,19 @@
+<div id='questions'>
+
+<table class="q-display-table">
+    <% @questions.each do |question| %>
+  <tr>
+    <td class="votes"><%=question.vote_count %><br>votes</td>
+    <td class="answers"><%=question.answer_count %><br>answers</td>
+    <td class="question-tag"><%=link_to "#{question.title}", question_path(question.id) %><br>
+      <%question.tags.each do |tag|%>
+      <%=link_to "#{tag.title}", tag_path(tag.id), {class: "tags"}%>
+      <%end%></td>
+      <td class="user-time"><%=question.user.username %><br><%="#{question.time_since_creation} hours ago"%></td>
+  </tr>
+    <% end %>
+</table>
+
+
+</div>
+

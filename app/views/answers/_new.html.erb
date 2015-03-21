@@ -1,0 +1,20 @@
+<div class="add-new-answer">
+  <h3>Answer this Question</h3>
+
+  <div class="errors-partial">
+    <% render "/shared/errors" %>
+  </div>
+
+  <div class="new-answer-form">
+    <%= form_for :answer, url: question_answers_path(@question.id), method: :create do |f| %>
+
+      <p>
+        <%= f.text_area :content %>
+      </p>
+
+      <p>
+        <%= f.submit "Submit Your Answer" %>
+      </p>
+    <% end %>
+  </div>
+</div>

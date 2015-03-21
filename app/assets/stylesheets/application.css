@@ -1,0 +1,192 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.button {
+  background: #666;
+  color: white;
+  border: 1px solid black;
+  text-decoration: none;
+  font-family: Helvetica;
+  display: inline-block;
+  padding: 7px;
+}
+
+.topbar {
+  width: 100%;
+  background: black;
+  height: 2em;
+  line-height: 1;
+}
+
+.topbar a:hover{
+  color: silver;
+  -webkit-stroke-width: 3px;
+      -webkit-stroke-color: #FFFFFF;
+      -webkit-fill-color: #FFFFFF;
+      text-shadow: 1px 0px 2px silver;
+}
+
+.home-nav {
+  position: relative;
+  text-align: left;
+}
+
+.topbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 2em;
+}
+
+#login {
+  float: right;
+}
+
+#login a {
+  padding: 0 .25em;
+}
+
+#user-menu {
+  float: right;
+}
+
+#user-menu a {
+  padding: 0 .25em;
+}
+
+.question-page {
+  margin: 2em auto;
+  width: 90%;
+}
+
+
+
+.question-container div {
+  display: inline-block;
+}
+
+.question-container {
+    padding: 1em;
+}
+
+.answer-container div {
+  display: inline-block;}
+
+.answer-container {
+  padding: 1em;
+  margin-left: 3em;
+}
+
+table {
+  font-size: 1em;
+  font-family: sans-serif;
+  color: gray;
+  text-align: center;
+  margin-top: 3em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+td {
+  border-bottom: 1px solid gray;
+  padding: .5em 0;
+}
+
+table .question-tag {
+  text-align: left;
+  vertical-align: top;
+}
+
+table a {
+  text-decoration: none;
+  color: rgb(0, 119, 204);
+}
+
+.tags {
+  background: rgb(222, 232, 242);
+  padding: 3px;
+}
+
+.user-time {
+  font-size: .75em;
+  text-align: right;
+  vertical-align: bottom;
+}
+
+button {
+  width: 5%;
+}
+
+.q-title-content {
+  margin: .5em;
+  vertical-align: top;
+}
+
+.old-answer-container {
+  margin: .5em;
+  vertical-align: top;
+}
+.vote-container {
+  text-align: center;}
+
+.vote-container span {
+  padding: .25em;
+}
+
+.show-comment {
+  backround: red;
+}
+
+.tag-container {
+  margin: 2em auto;
+  width: 90%;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.tag-container div {
+  display: inline-block;
+  font-size: 1em;
+}
+
+.tag-container a {
+  text-decoration: none;
+  color: rgb(0, 119, 204);
+}
+
+.render-q-comment {
+  background: gray;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  }
+
+.render-a-comment {
+  background: gray;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  margin-left: 4em;
+}
+
+.render-answer {
+  text-align: left;
+  display: inline-block;
+
+}
+
+.new-a-comment {
+  margin-left: 4em;
+}
+

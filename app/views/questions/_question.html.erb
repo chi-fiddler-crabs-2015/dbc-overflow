@@ -1,0 +1,12 @@
+<h3>Question</h3>
+<div class="question-container">
+  <div class="vote-container">
+    <%= button_to '+', question_votes_path(@question.id), params: {vote_value: 1} %>
+    <span id='vote-counter'><%= @question.vote_count %><br></span>
+    <%= button_to '-', question_votes_path(@question.id), params: {vote_value: -1} %>
+  </div>
+  <div class="q-title-content">
+    <%=@question.title%><br>
+    <%=@question.content%>
+  </div>
+</div>
