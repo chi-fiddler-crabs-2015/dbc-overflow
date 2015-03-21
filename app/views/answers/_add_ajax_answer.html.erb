@@ -1,5 +1,13 @@
-<h2>Answer</h2>
-<%= button_to '+', question_answer_votes_path(@question.id, @answer.id), params: {vote_value: 1}  %>
-<%= 0 %>
-<%= button_to '-', question_answer_votes_path(@question.id, @answer.id), params: {vote_value: -1}  %>
-<%= @answer.content %><br>
+</div<>
+<div class="answer-container">
+  <h3>Answer</h3>
+<div class="vote-container">
+  <%= button_to '+', question_answer_votes_path(@question.id, @new_answer.id), params: {vote_value: 1} %>
+  <span id='vote-counter'><%= 0  %><br></span>
+  <%= button_to '-', question_answer_votes_path(@question.id, @new_answer.id), params: {vote_value: -1} %>
+</div>
+<div class="old-answer-container">
+  <%= @new_answer.content %><br>
+</div>
+</div>
+
