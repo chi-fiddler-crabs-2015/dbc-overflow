@@ -18,12 +18,12 @@ class CommentsController < ApplicationController
           end
         end
         format.any do
+          redirect_to question_path(params[:question_id])
         end
       end
-      redirect_to question_path(params[:question_id])
     else
       @errors = @comment.errors.full_messages.join(', ')
-      redirect_to question_path(params[:question_id])
+      render :nothing => true
     end
   end
 

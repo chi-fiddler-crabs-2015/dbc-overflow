@@ -1,5 +1,27 @@
-<h2>Answer</h2>
-<%= button_to '+', question_answer_votes_path(@question.id, @answer.id), params: {vote_value: 1}  %>
-<%= 0 %>
-<%= button_to '-', question_answer_votes_path(@question.id, @answer.id), params: {vote_value: -1}  %>
-<%= @answer.content %><br>
+<div class="answer-container">
+  <h3>Answer</h3>
+    <div class="vote-container">
+      <%= button_to '+', question_answer_votes_path(@question.id, @answer.id), params: {vote_value: 1}, remote: true, authenticity_token: true  %>
+      <span id='vote-counter'><%= 0 %><br></span>
+      <%= button_to '-', question_answer_votes_path(@question.id, @answer.id), params: {vote_value: -1}, remote: true, authenticity_token: true   %>
+      <%= @answer.content %><br>
+    </div>
+    <div class="add-new-comment">
+      <h3>Add a New Comment</h3>
+      <div class="errors-partial">
+        <% render "/shared/errors" %>
+      </div>
+      <div class="new-a-comment-form">
+       <%= form_for :comment, url: question_answer_comments_path(@question.id, @answer.id), remote: true, authenticity_token: true, method: :create do |f| %>
+
+        <p>
+          <%= f.text_area :content %>
+        </p>
+
+        <p>
+          <%= f.submit "Leave Your Comment" %>
+        </p>
+      <% end %>
+      </div>
+    </div>
+</div>

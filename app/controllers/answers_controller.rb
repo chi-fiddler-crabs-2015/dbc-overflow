@@ -9,18 +9,17 @@ class AnswersController < ApplicationController
     @answer = @question.answers.new(answer_params)
     @answer.update_attributes(user: current_user)
     if @answer.save
-      # respond_to do |format|
-      #   format.js do
+      respond_to do |format|
+        format.js do
+          render partial: 'add_ajax_answer' and return
+        end
+        format.any do
           redirect_to question_path(params[:question_id])
-          # render partial: 'add_ajax_answer' and return
-        # end
-        # format.any do
-        #   redirect_to question_path(params[:question_id])
-      #   end
-      # end
+        end
+      end
     else
       @errors = @answer.errors.full_messages.join(', ')
-      redirect_to question_path(params[:question_id])
+      render :nothing => true
     end
   end
 

@@ -1,9 +1,9 @@
 <div class="answer-container">
   <h3>Answer</h3>
 <div class="vote-container">
-  <%= button_to '+', question_answer_votes_path(@question.id, @old_answer.id), params: {vote_value: 1} %>
+  <%= button_to '+', question_answer_votes_path(@question.id, @old_answer.id), params: {vote_value: 1}, remote: true, authenticity_token: true  %>
   <span id='vote-counter'><%= @old_answer.vote_count %><br></span>
-  <%= button_to '-', question_answer_votes_path(@question.id, @old_answer.id), params: {vote_value: -1} %>
+  <%= button_to '-', question_answer_votes_path(@question.id, @old_answer.id), params: {vote_value: -1}, remote: true, authenticity_token: true  %>
 </div>
 <div class="old-answer-container">
   <%= @old_answer.content %><br>

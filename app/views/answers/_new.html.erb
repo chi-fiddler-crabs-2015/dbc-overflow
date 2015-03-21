@@ -6,7 +6,7 @@
   </div>
 
   <div class="new-answer-form">
-    <%= form_for :answer, url: question_answers_path(@question.id), method: :create do |f| %>
+    <%= form_for :answer, url: question_answers_path(@question.id), remote: true, authenticity_token: true, method: :create do |f| %>
 
       <p>
         <%= f.text_area :content %>
